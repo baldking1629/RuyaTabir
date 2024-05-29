@@ -1,0 +1,17 @@
+﻿@model RuyaTabir.Models.db.RUYA
+@{
+    ViewBag.Title = "Tabir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group">
+    <div>
+        <label>Rüyanız:</label>
+        <br />
+    </div>
+    <div style="vertical-align">
+        @Html.TextAreaFor(m => m.Ruya1, new { @style = "min-block-size:250px; min-inline-size:500px" })
+        @Html.TextAreaFor(m => m.RuyaTabir, new { @style = "min-block-size:250px; min-inline-size:500px" })
+    </div>
+</form>
+
