@@ -1,10 +1,103 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
+<style>
+    body {
+        background: linear-gradient(to bottom, #000428, #004e92);
+        overflow: hidden;
+        margin: 0; /* Sayfa kenar boşluklarını sıfırlama */
+    }
 
-<body style="background-image:url('/Content/img/r4.jpeg');background-size:100% 100%">
+    .stars {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    .star {
+        position: absolute;
+        background-color: white; /* Yıldız rengi */
+        opacity: 0.8; /* Yıldızların opaklığı */
+        border-radius: 50%; /* Yıldızların yuvarlak görünmesi için */
+    }
+
+    .moon {
+        position: absolute;
+        background-color: #f0e68c; /* Ay rengi */
+        border-radius: 50%; /* Yuvarlak görünüm */
+        opacity: 0.9; /* Opaklık */
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Gölge efekti */
+    }
+
+    .planet {
+        position: absolute;
+        background-color: #ffcc00; /* Gezegen rengi */
+        border-radius: 50%; /* Yuvarlak görünüm */
+        opacity: 0.8; /* Opaklık */
+        box-shadow: 0 0 15px rgba(255, 255, 0, 0.5); /* Gölge efekti */
+    }
+
+    .navbar {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .navbar-brand, .navbar-nav li a {
+        color: #fff !important;
+        font-weight: bold;
+    }
+
+    .container {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        padding: 20px;
+        margin-top: 20px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    }
+
+    h1 {
+        color: #e0f7fa;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    }
+</style>
+
+<body>
+    <div class="stars"></div>
+    <script>
+        const starsContainer = document.querySelector('.stars');
+        const starCount = 100; // Yıldız sayısı
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 3 + 1; // Normal yıldız boyutu
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${Math.random() * 100}vw`; // Rastgele yatay konum
+            star.style.top = `${Math.random() * 100}vh`; // Rastgele dikey konum
+            starsContainer.appendChild(star);
+        }
+
+        // Ay ekleme
+        const moon = document.createElement('div');
+        moon.className = 'moon';
+        moon.style.width = '80px'; // Ay boyutu büyütüldü
+        moon.style.height = '80px'; // Ay boyutu büyütüldü
+        moon.style.left = '15vw'; // Ayın yeni yatay konumu
+        moon.style.top = '15vh'; // Ayın yeni dikey konumu
+        starsContainer.appendChild(moon);
+
+        // Gezegen ekleme (Satürn)
+        const saturn = document.createElement('div');
+        saturn.className = 'planet';
+        saturn.style.width = '100px'; // Gezegen boyutu büyütüldü
+        saturn.style.height = '100px'; // Gezegen boyutu büyütüldü
+        saturn.style.left = '75vw'; // Gezegenin yeni yatay konumu
+        saturn.style.top = '40vh'; // Gezegenin yeni dikey konumu
+        starsContainer.appendChild(saturn);
+    </script>
     <!DOCTYPE html>
     <html>
     <head>
@@ -24,8 +117,6 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="#">Home</a></li>
-
-
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

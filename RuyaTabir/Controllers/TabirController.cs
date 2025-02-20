@@ -45,8 +45,7 @@ namespace RuyaTabir.Controllers
                 RequestUri = new Uri("https://chatgpt-api7.p.rapidapi.com/ask"),
                 Headers =
     {
-        { "X-RapidAPI-Key", "d317931d34msh05c39424a217125p134a3cjsn3214b19f3e1d" },
-        { "X-RapidAPI-Host", "chatgpt-api7.p.rapidapi.com" },
+        //your api key
     },
                 Content = new StringContent("{\r\"query\": \"" +"rüyamda"+ girdi +"rüyamı tabir et."+ "\"\r}")
                 {
